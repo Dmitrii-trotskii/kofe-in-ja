@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Карта сайта. Логин и имя репозитория уже подставлены (Dmitrii-trotskii,
+     kofe-in-ja). Если назовёте репозиторий иначе — поменяйте его в адресах.
+     Служебные страницы (zakazy.html, admin.html) сюда не входят: они закрыты от поиска. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://Dmitrii-trotskii.github.io/kofe-in-ja/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://Dmitrii-trotskii.github.io/kofe-in-ja/politika.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

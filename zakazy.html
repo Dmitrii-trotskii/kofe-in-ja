@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Журнал заявок — «Тёплый угол» (демо)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#fbf7f1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232b1a12'/%3E%3Cpath d='M9 11h12v8a6 6 0 0 1-12 0z' fill='%23e8c9a3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-panel.css">
+  <script src="js/config.js"></script>
+</head>
+<body class="panel-page">
+
+  <!-- Пароль только от случайного открытия. Он лежит в открытом файле
+       js/config.js — это не защита от взлома, а загородка для любопытных. -->
+  <script>
+    (function () {
+      var expected = window.SITE && window.SITE.servicePassword;
+      if (window.SITE && window.SITE.marks && window.SITE.marks.demoBanner === false) {
+        document.title = String(document.title || "").replace(/\s*\(демо\)/gi, "");
+      }
+      var entered = window.prompt("Пароль");
+      if (entered !== null && entered === expected) return;
+
+      window.__serviceDenied = true;
+      document.body.className = "panel-page is-denied";
+      document.body.innerHTML =
+        '<div class="denied-box"><main class="wrap panel-main">' +
+        '<div class="empty"><h1>Доступ закрыт</h1>' +
+        '<p>Пароль не подошёл или окно ввода закрыто. Эта страница служебная:' +
+        ' она нужна только владельцу сайта.</p>' +
+        '<a class="btn btn-primary" href="index.html">На главную</a>' +
+        '</div></main></div>';
+      throw new Error("Доступ к служебной странице закрыт");
+    }());
+  </script>
+
+  <header class="panel-header">
+    <div class="wrap panel-header-inner">
+      <a class="logo" href="index.html" aria-label="«Тёплый угол», на главную страницу">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="24" height="24">
+            <path d="M7 10h13v9a6 6 0 0 1-13 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M20 12h2.6a3.4 3.4 0 0 1 0 6.8H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-name">Тёплый угол</span>
+          <span class="logo-sub">журнал заявок</span>
+        </span>
+      </a>
+
+      <span class="panel-badge">Демо</span>
+      <a class="btn btn-ghost btn-sm" href="index.html">Открыть сайт</a>
+    </div>
+  </header>
+
+  <main class="wrap panel-main">
+    <div class="panel-head">
+      <div>
+        <p class="eyebrow">Только на этом устройстве</p>
+        <h1>Журнал заявок</h1>
+        <p class="section-lead">
+          Сюда попадают заявки из формы бронирования. Данные хранятся в памяти браузера:
+          на другом компьютере их не видно, в интернет они не уходят.
+        </p>
+      </div>
+
+      <div class="panel-actions">
+        <button class="btn btn-primary" id="export-csv" type="button">Экспорт в CSV</button>
+        <button class="btn btn-ghost" id="clear-all" type="button">Очистить всё</button>
+      </div>
+    </div>
+
+    <ul class="stats" aria-label="Счётчики по статусам">
+      <li class="stat">
+        <span class="stat-value" id="stat-total">0</span>
+        <span class="stat-name">Всего</span>
+      </li>
+      <li class="stat stat--new">
+        <span class="stat-value" id="stat-new">0</span>
+        <span class="stat-name">Новые</span>
+      </li>
+      <li class="stat stat--ok">
+        <span class="stat-value" id="stat-confirmed">0</span>
+        <span class="stat-name">Подтверждены</span>
+      </li>
+      <li class="stat stat--no">
+        <span class="stat-value" id="stat-cancelled">0</span>
+        <span class="stat-name">Отменены</span>
+      </li>
+    </ul>
+
+    <div class="table-wrap" id="table-wrap" hidden>
+      <table class="data">
+        <caption>Статус меняется щелчком по значку в последнем столбце.</caption>
+        <thead>
+          <tr>
+            <th scope="col">№</th>
+            <th scope="col">Заявка пришла</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Бронь</th>
+            <th scope="col">Гостей</th>
+            <th scope="col">Комментарий</th>
+            <th scope="col">Статус</th>
+          </tr>
+        </thead>
+        <tbody id="requests-body"></tbody>
+      </table>
+    </div>
+
+    <div class="empty" id="empty-state">
+      <h2>Пока заявок нет</h2>
+      <p>
+        Как только кто-то заполнит форму бронирования на сайте, заявка появится здесь.
+        Проверить легко: откройте сайт и отправьте тестовую заявку.
+      </p>
+      <a class="btn btn-primary" href="index.html">Открыть сайт</a>
+    </div>
+
+    <p class="panel-note" id="panel-note">
+      Страница служебная: её нет в меню сайта и она закрыта от поисковиков.
+    </p>
+    <p class="panel-note panel-note--warn" id="storage-note" hidden>
+      Браузер не разрешил хранение данных. Заявки будут жить до закрытия вкладки —
+      после перезагрузки они пропадут.
+    </p>
+  </main>
+
+  <footer class="panel-footer wrap">
+    <p>Демонстрационный журнал. Заявки никуда не отправляются.
+      <a href="admin.html">Панель меню</a> · <a href="index.html">Сайт</a></p>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/zakazy.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Панель меню — «Тёплый угол» (демо)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#fbf7f1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232b1a12'/%3E%3Cpath d='M9 11h12v8a6 6 0 0 1-12 0z' fill='%23e8c9a3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-panel.css">
+  <script src="js/config.js"></script>
+</head>
+<body class="panel-page">
+
+  <!-- Пароль только от случайного открытия. Он лежит в открытом файле
+       js/config.js — это не защита от взлома, а загородка для любопытных. -->
+  <script>
+    (function () {
+      var expected = window.SITE && window.SITE.servicePassword;
+      if (window.SITE && window.SITE.marks && window.SITE.marks.demoBanner === false) {
+        document.title = String(document.title || "").replace(/\s*\(демо\)/gi, "");
+      }
+      var entered = window.prompt("Пароль");
+      if (entered !== null && entered === expected) return;
+
+      window.__serviceDenied = true;
+      document.body.className = "panel-page is-denied";
+      document.body.innerHTML =
+        '<div class="denied-box"><main class="wrap panel-main">' +
+        '<div class="empty"><h1>Доступ закрыт</h1>' +
+        '<p>Пароль не подошёл или окно ввода закрыто. Эта страница служебная:' +
+        ' она нужна только владельцу сайта.</p>' +
+        '<a class="btn btn-primary" href="index.html">На главную</a>' +
+        '</div></main></div>';
+      throw new Error("Доступ к служебной странице закрыт");
+    }());
+  </script>
+
+  <header class="panel-header">
+    <div class="wrap panel-header-inner">
+      <a class="logo" href="index.html" aria-label="«Тёплый угол», на главную страницу">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="24" height="24">
+            <path d="M7 10h13v9a6 6 0 0 1-13 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M20 12h2.6a3.4 3.4 0 0 1 0 6.8H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-name">Тёплый угол</span>
+          <span class="logo-sub">панель меню</span>
+        </span>
+      </a>
+
+      <span class="panel-badge">Демо</span>
+      <a class="btn btn-ghost btn-sm" href="index.html">Открыть сайт</a>
+    </div>
+  </header>
+
+  <main class="wrap panel-main">
+    <div class="panel-head">
+      <div>
+        <p class="eyebrow">Меню и цены</p>
+        <h1>Панель меню</h1>
+        <p class="section-lead">
+          Меняйте названия, описания и цены. Справа внизу сразу видно, как это будет выглядеть на сайте.
+          Готовый файл скачивается кнопкой — им нужно заменить файл в папке data.
+        </p>
+      </div>
+    </div>
+
+    <div class="hint">
+      <strong>Как это работает — коротко:</strong>
+      <ol>
+        <li>Поправьте категории и позиции ниже.</li>
+        <li>Нажмите «Скачать menu.js» — браузер сохранит файл <code>menu.js</code>.</li>
+        <li>Скачанный файл перенесите в папку <code>data</code> этого сайта и замените старый.</li>
+        <li>Обновите страницу сайта — меню обновится.</li>
+      </ol>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn btn-primary" type="button" id="download-menu">Скачать menu.js</button>
+      <button class="btn btn-ghost" type="button" id="reset-menu">Сбросить к исходному</button>
+      <button class="btn btn-ghost" type="button" id="add-category">Добавить категорию</button>
+      <span class="panel-note" id="editor-count"></span>
+    </div>
+
+    <p class="panel-note" id="draft-note" hidden>
+      В этом браузере сохранён черновик — можно продолжать с него.
+    </p>
+
+    <p class="panel-note">
+      <strong>Фото блюд.</strong> Положите файл в <code>assets/img/dishes/</code> и добавьте его имя
+      в <code>data/photos.js</code> — тогда в поле «Фото блюда» появятся подсказки.
+      Фото показывается в блоке «Атмосфера» на сайте, рядом с названием и ценой.
+    </p>
+
+    <p class="panel-note panel-note--warn" id="menu-missing" hidden>
+      Файл <code>data/menu.js</code> не загрузился. Добавьте категорию вручную или положите файл на место.
+    </p>
+
+    <div class="editor" id="editor"></div>
+
+    <!-- Подсказки для поля «Фото блюда». Список заполняет js/admin.js из data/photos.js. -->
+    <datalist id="dish-photos"></datalist>
+
+    <div class="code-box">
+      <details>
+        <summary>Показать текст файла (если скачивание не сработало)</summary>
+        <p class="panel-note">
+          Скопируйте текст, вставьте его в файл <code>data/menu.js</code> и сохраните.
+        </p>
+        <textarea id="menu-code" readonly spellcheck="false" aria-label="Текст файла menu.js"></textarea>
+      </details>
+    </div>
+
+    <section class="preview-section preview" aria-labelledby="preview-title">
+      <div class="preview-head">
+        <h2 id="preview-title">Предпросмотр</h2>
+        <p>Так меню будет выглядеть на тёмной секции сайта.</p>
+      </div>
+      <div class="menu-columns" id="menu-preview"></div>
+    </section>
+
+    <section class="admin-section" id="reviews-editor" aria-labelledby="reviews-editor-title">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Отзывы гостей</p>
+          <h2 id="reviews-editor-title">Отзывы на сайте</h2>
+          <p class="section-lead">
+            Здесь можно поправить демонстрационные отзывы, добавить свои и убрать лишние.
+            Готовый файл скачивается кнопкой — им нужно заменить файл <code>data/reviews.js</code>.
+          </p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn btn-primary" type="button" id="download-reviews">Скачать reviews.js</button>
+        <button class="btn btn-ghost" type="button" id="add-review">Добавить отзыв</button>
+        <button class="btn btn-ghost" type="button" id="reset-reviews">Сбросить к исходному</button>
+        <span class="panel-note" id="reviews-count"></span>
+      </div>
+
+      <label class="toggle-line">
+        <input type="checkbox" id="reviews-enabled">
+        Показывать раздел «Отзывы» на сайте
+      </label>
+
+      <p class="panel-note">
+        Поля «Источник», «Ссылка», «Дата» и «Оценка» пока пустые — заполните их, если появятся
+        настоящие отзывы. Галочка «Демонстрационный» помогает не забыть заменить текст перед сдачей.
+      </p>
+
+      <p class="panel-note panel-note--warn" id="reviews-missing" hidden>
+        Файл <code>data/reviews.js</code> не загрузился. Нажмите «Добавить отзыв» или положите файл на место.
+      </p>
+
+      <div class="editor cat-card" id="reviews-list-editor"></div>
+
+      <div class="code-box">
+        <details>
+          <summary>Показать текст файла reviews.js (если скачивание не сработало)</summary>
+          <p class="panel-note">
+            Скопируйте текст, вставьте его в файл <code>data/reviews.js</code> и сохраните.
+          </p>
+          <textarea id="reviews-code" readonly spellcheck="false" aria-label="Текст файла reviews.js"></textarea>
+        </details>
+      </div>
+    </section>
+
+    <p class="panel-note">
+      Страница служебная: её нет в меню сайта и она закрыта от поисковиков.
+      Изменения хранятся как черновик в этом браузере, на сайт они попадают только через файл
+      <code>data/menu.js</code>. <a href="zakazy.html">Журнал заявок</a> · <a href="index.html">Сайт</a>
+    </p>
+  </main>
+
+  <footer class="panel-footer wrap">
+    <p>Демонстрационная панель. Настоящий заказчик меняет меню здесь и заменяет один файл.</p>
+  </footer>
+
+  <script src="data/menu.js"></script>
+  <script src="data/photos.js"></script>
+  <script src="data/reviews.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

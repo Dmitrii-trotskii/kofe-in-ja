@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>«Тёплый угол» — кофейня в центре: кофе, завтраки, бронь столика</title>
+  <meta name="description" content="Кофейня «Тёплый угол»: своя обжарка, завтраки с 8:00, тихий зал и розетки. Меню с ценами, бронирование столика на сайте.">
+  <meta name="theme-color" content="#fbf7f1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232b1a12'/%3E%3Cpath d='M9 11h12v8a6 6 0 0 1-12 0z' fill='%23e8c9a3'/%3E%3Cpath d='M21 13h2.5a3.5 3.5 0 0 1 0 7H21' fill='none' stroke='%23e8c9a3' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/img/hero.jpg">
+
+  <!-- Карточка для соцсетей -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Кофейня «Тёплый угол»">
+  <meta property="og:title" content="«Тёплый угол» — кофейня, где не надо спешить">
+  <meta property="og:description" content="Своя обжарка, завтраки с 8:00 и тихий зал с розетками. Забронируйте столик заранее.">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Чашка кофе на столе у окна кофейни «Тёплый угол»">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="«Тёплый угол» — кофейня, где не надо спешить">
+  <meta name="twitter:description" content="Своя обжарка, завтраки с 8:00 и тихий зал с розетками. Забронируйте столик заранее.">
+  <meta name="twitter:image" content="assets/img/og.jpg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Разметка для поисковиков. Значения обновляются скриптом из js/config.js -->
+  <script type="application/ld+json" id="cafe-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Кофейня «Тёплый угол»",
+    "telephone": "+70000000000",
+    "email": "hello@example.com",
+    "priceRange": "150–600 ₽",
+    "url": "https://example.com/",
+    "image": [
+      "https://example.com/assets/img/hero.jpg",
+      "https://example.com/assets/img/og.jpg"
+    ],
+    "menu": "https://example.com/#menu",
+    "hasMenu": { "@type": "Menu", "url": "https://example.com/#menu" },
+    "servesCuisine": "Кофейня, завтраки, выпечка",
+    "sameAs": [
+      "https://wa.me/70000000000",
+      "https://t.me/teply_ugol_demo",
+      "https://vk.com/teply_ugol_demo"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "XXXXXX",
+      "streetAddress": "ул. Хххххххх, д. ХХ",
+      "addressLocality": "Москва",
+      "addressCountry": "RU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 55.7602, "longitude": 37.6187 },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "22:00"
+      }
+    ],
+    "acceptsReservations": "True"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Ссылка для клавиатуры: сразу уходит к содержимому -->
+  <a class="skip-link" href="#top">Перейти к содержимому</a>
+
+  <!-- Тонкая полоса о том, что это макет.
+       Выключается флажком marks.demoBanner в js/config.js -->
+  <div class="demo-bar" data-mark="demoBanner">
+    <div class="wrap">
+      <span>Демонстрационный макет. Заявки сохраняются только на этом устройстве.</span>
+    </div>
+  </div>
+
+  <!-- Меню-бургер без скриптов: скрытый флажок + подпись -->
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Открыть меню навигации">
+
+  <!-- ======================= ШАПКА ======================= -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="«Тёплый угол», на главную">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="24" height="24">
+            <path d="M7 10h13v9a6 6 0 0 1-13 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M20 12h2.6a3.4 3.4 0 0 1 0 6.8H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M11 6.5c-.8-1.4.8-2.2 0-3.5M15 6.5c-.8-1.4.8-2.2 0-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-name" data-site="name">Тёплый угол</span>
+          <span class="logo-sub" data-site="bakeryLabel">кофейня и пекарня</span>
+        </span>
+      </a>
+
+      <span class="header-status" data-open-status aria-live="polite"></span>
+
+      <label class="burger" for="nav-toggle" aria-hidden="true">
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#about">О нас</a>
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Атмосфера</a>
+        <a href="#reviews" data-site="reviewsNav">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+        <a class="btn btn-primary nav-cta" href="#booking">Забронировать столик</a>
+      </nav>
+
+      <a class="btn btn-primary header-cta" href="#booking">Забронировать столик</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ======================= ПЕРВЫЙ ЭКРАН ======================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Работаем с 2019 года</p>
+          <h1 id="hero-title">Кофе, с которым <span class="hl">не хочется</span> спешить</h1>
+          <p class="hero-lead">
+            Маленькая кофейня на первом этаже старого дома. Сами обжариваем зерно, печём сырники
+            к открытию и не включаем громкую музыку. Приходите поработать, встретиться или
+            просто посидеть у окна.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#booking">Забронировать столик</a>
+            <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+          </div>
+          <ul class="hero-facts">
+            <li>своя обжарка</li>
+            <li>завтраки с 8:00</li>
+            <li>Wi-Fi и розетки</li>
+          </ul>
+        </div>
+
+        <!-- Фото первого экрана и бейдж с ценой.
+             Когда владелец впишет путь к видео в настройках (heroVideo),
+             скрипт заменит фото на короткий ролик — разметку менять не нужно.
+             Если фото нет, остаётся градиентная панель. -->
+        <div class="hero-visual">
+          <div class="hero-photo">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/hero-640.webp 640w, assets/img/hero-1280.webp 1280w"
+                      sizes="(max-width: 860px) 100vw, 45vw">
+              <img src="assets/img/hero.jpg" srcset="assets/img/hero.jpg 1600w"
+                   alt="Латте с рисунком сердца на пенке на деревянном столе"
+                   width="1600" height="1100" loading="eager" decoding="async"
+                   onerror="this.hidden = true">
+            </picture>
+          </div>
+
+          <p class="visual-badge">
+            <strong>Флэт уайт</strong>
+            <span>260&nbsp;₽ · на овсяном молоке</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= О КОФЕЙНЕ ======================= -->
+    <section class="section section--about" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Почему к нам возвращаются</p>
+          <h2 id="about-title">Четыре причины зайти на чашку</h2>
+          <p class="section-lead">
+            Мы не сеть и не франшиза. Одна кофейня, две кофемашины и шесть человек,
+            которые знают своих гостей по именам.
+          </p>
+        </div>
+
+        <ul class="features">
+          <li class="feature">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <ellipse cx="12" cy="12" rx="6.4" ry="9.4" transform="rotate(35 12 12)"/>
+                <path d="M8.6 6.6c4 3.6 4.4 7.6 1.4 11.6"/>
+              </svg>
+            </span>
+            <h3>Своя обжарка</h3>
+            <p>Зерно обжариваем малыми партиями раз в неделю. Поэтому кофе свежий и не горчит.</p>
+          </li>
+
+          <li class="feature">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <circle cx="12" cy="12" r="8.5"/>
+                <path d="M12 7.5V12l3 2"/>
+              </svg>
+            </span>
+            <h3>Завтраки с 8:00</h3>
+            <p>Сырники, каша и омлет — к открытию. Пока город просыпается, у нас уже горячо.</p>
+          </li>
+
+          <li class="feature">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <rect x="4" y="4" width="16" height="16" rx="3"/>
+                <path d="M12 4v16M4 12h16"/>
+              </svg>
+            </span>
+            <h3>Тихо и светло</h3>
+            <p>Большие окна, мягкие кресла и розетка у каждого стола. Работать удобно.</p>
+          </li>
+
+          <li class="feature">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 9h11v5a5.5 5.5 0 0 1-11 0z"/>
+                <path d="M16 10.5h2a2.6 2.6 0 0 1 0 5.2h-2"/>
+                <path d="M8.5 5.5c-.6-1 .6-1.6 0-2.5M12 5.5c-.6-1 .6-1.6 0-2.5"/>
+              </svg>
+            </span>
+            <h3>Кофе на любой вкус</h3>
+            <p>Классика, фильтр, колд брю и овсяное молоко. Бариста подскажет, что выбрать.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= МЕНЮ ======================= -->
+    <section class="section section--dark" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow eyebrow--light">Что у нас есть</p>
+          <h2 id="menu-title">Меню</h2>
+          <p class="section-lead">
+            Небольшое и понятное. Цены в рублях, порции обычные — без сюрпризов на тарелке.
+          </p>
+        </div>
+
+        <!-- Меню собирается скриптом из data/menu.js -->
+        <div class="menu-columns" id="menu-columns"></div>
+
+        <!-- Если скрипты выключены — короткий список -->
+        <noscript>
+          <div class="menu-columns">
+            <section class="menu-col">
+              <h3>Кофе</h3>
+              <ul class="dishes">
+                <li><span class="dish-name">Эспрессо</span><span class="dish-price">150&nbsp;₽</span></li>
+                <li><span class="dish-name">Капучино</span><span class="dish-price">240&nbsp;₽</span></li>
+                <li><span class="dish-name">Флэт уайт</span><span class="dish-price">260&nbsp;₽</span></li>
+                <li><span class="dish-name">Фильтр V60</span><span class="dish-price">290&nbsp;₽</span></li>
+              </ul>
+            </section>
+            <section class="menu-col">
+              <h3>Десерты</h3>
+              <ul class="dishes">
+                <li><span class="dish-name">Круассан с миндалём</span><span class="dish-price">220&nbsp;₽</span></li>
+                <li><span class="dish-name">Медовик</span><span class="dish-price">260&nbsp;₽</span></li>
+                <li><span class="dish-name">Брауни без муки</span><span class="dish-price">240&nbsp;₽</span></li>
+              </ul>
+            </section>
+            <section class="menu-col">
+              <h3>Завтраки</h3>
+              <ul class="dishes">
+                <li><span class="dish-name">Сырники с мёдом и сметаной</span><span class="dish-price">340&nbsp;₽</span></li>
+                <li><span class="dish-name">Овсяная каша с грушей</span><span class="dish-price">280&nbsp;₽</span></li>
+                <li><span class="dish-name">Омлет с томатами и сыром</span><span class="dish-price">320&nbsp;₽</span></li>
+              </ul>
+            </section>
+          </div>
+          <p class="menu-note">Показан короткий список. Полное меню — в файле data/menu.js или по телефону.</p>
+        </noscript>
+
+        <p class="menu-updated" id="menu-updated">Меню обновлено 18.11.2026</p>
+      </div>
+    </section>
+
+    <!-- ======================= КОФЕ С СОБОЙ ======================= -->
+    <section class="section section--takeaway" id="takeaway" aria-labelledby="takeaway-title">
+      <div class="wrap takeaway-inner">
+        <div>
+          <p class="eyebrow">Если некогда остаться</p>
+          <h2 id="takeaway-title">Кофе с собой</h2>
+          <p class="section-lead">
+            Любую позицию из меню можно забрать с собой. Скажите бариста на кассе
+            или напишите в комментарии при брони — соберём и упакуем.
+          </p>
+        </div>
+        <div class="takeaway-actions">
+          <a class="btn btn-primary" href="#menu">Смотреть меню</a>
+          <a class="btn btn-ghost" href="#booking">Забронировать</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= АТМОСФЕРА ======================= -->
+    <section class="section section--beans" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Как у нас внутри</p>
+          <h2 id="gallery-title">Атмосфера без пафоса</h2>
+          <p class="section-lead">
+            Деревянные столы, живые растения и свет, который летом падает прямо на барную стойку.
+          </p>
+        </div>
+
+        <ul class="gallery" aria-label="Фотографии кофейни и плитки с описанием обстановки">
+          <!-- Три плитки с фото. Если файла нет — остаётся градиент. -->
+          <li class="tile tile--photo tile-1">
+            <span class="tile-media">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/img/interior-1-640.webp 640w, assets/img/interior-1-1200.webp 1200w"
+                        sizes="(max-width: 899px) 50vw, 33vw">
+                <img src="assets/img/interior-1.jpg" srcset="assets/img/interior-1.jpg 1200w"
+                     alt="Зал кофейни: деревянные столы, мягкий свет и большие окна"
+                     width="1200" height="900" loading="lazy" decoding="async"
+                     onerror="this.hidden = true">
+              </picture>
+            </span>
+            <span class="tile-caption">Зал у окна</span>
+          </li>
+
+          <!-- Свободное место под фото блюда. Если фото нет — остаётся градиент. -->
+          <li class="tile tile-2" data-dish-slot="1">
+            <span class="tile-caption">Свежая обжарка</span>
+          </li>
+
+          <li class="tile tile--photo tile-3">
+            <span class="tile-media">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/img/dessert-1-640.webp 640w, assets/img/dessert-1-1200.webp 1200w"
+                        sizes="(max-width: 899px) 50vw, 33vw">
+                <img src="assets/img/dessert-1.jpg" srcset="assets/img/dessert-1.jpg 1200w"
+                     alt="Чизкейк с черничным соусом на керамической тарелке"
+                     width="1200" height="900" loading="lazy" decoding="async"
+                     onerror="this.hidden = true">
+              </picture>
+            </span>
+            <span class="tile-caption">Чизкейк с черникой</span>
+          </li>
+
+          <li class="tile tile-4" data-dish-slot="2">
+            <span class="tile-caption">Сырники и мёд</span>
+          </li>
+
+          <li class="tile tile-5" data-dish-slot="3">
+            <span class="tile-caption">Вечерний свет</span>
+          </li>
+
+          <li class="tile tile--photo tile-6">
+            <span class="tile-media">
+              <picture>
+                <source type="image/webp"
+                        srcset="assets/img/latte-gallery-640.webp 640w, assets/img/latte-gallery-1200.webp 1200w"
+                        sizes="(max-width: 899px) 50vw, 33vw">
+                <img src="assets/img/latte-gallery.jpg" srcset="assets/img/latte-gallery.jpg 1536w"
+                     alt="Латте с рисунком на пенке на деревянном столе у окна"
+                     width="1536" height="1024" loading="lazy" decoding="async"
+                     onerror="this.hidden = true">
+              </picture>
+            </span>
+            <span class="tile-caption">Латте с рисунком</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= КОМАНДА И ЗЁРНА ======================= -->
+    <section class="section section--about" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Люди и зерно</p>
+          <h2 id="team-title">Кто стоит за кофе</h2>
+          <p class="section-lead">
+            Обжариваем малыми партиями раз в неделю и сами работаем за баром.
+            Знакомые регионы, без таинственных поставщиков.
+          </p>
+        </div>
+
+        <!-- Статика для file:// без скриптов. Скрипт заменяет списки из data/about.js. -->
+        <div class="team-grid" id="team-list">
+          <figure class="team-card">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/team/barista-640.webp 640w, assets/img/team/barista-1000.webp 1000w"
+                      sizes="(max-width: 860px) 100vw, 50vw">
+              <img src="assets/img/team/barista.jpg" srcset="assets/img/team/barista.jpg 1536w"
+                   alt="Бариста за барной стойкой" width="1536" height="1024"
+                   loading="lazy" decoding="async" onerror="this.hidden = true">
+            </picture>
+            <figcaption>
+              <strong>Бариста</strong>
+              <span>на баре</span>
+              <p>Встречает гостей и подскажет, что выбрать под настроение.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="team-card">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/team/roasting-640.webp 640w, assets/img/team/roasting-1000.webp 1000w"
+                      sizes="(max-width: 860px) 100vw, 50vw">
+              <img src="assets/img/team/roasting.jpg" srcset="assets/img/team/roasting.jpg 1536w"
+                   alt="Обжарка кофейных зёрен" width="1536" height="1024"
+                   loading="lazy" decoding="async" onerror="this.hidden = true">
+            </picture>
+            <figcaption>
+              <strong>Обжарщик</strong>
+              <span>за обжаркой</span>
+              <p>Обжаривает зерно малыми партиями раз в неделю.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="beans-grid" id="beans-list">
+          <article class="bean-card">
+            <h3>Эфиопия</h3>
+            <p class="bean-meta">светлая обжарка</p>
+            <p>цветочный аромат, нота ягод</p>
+          </article>
+          <article class="bean-card">
+            <h3>Колумбия</h3>
+            <p class="bean-meta">средняя обжарка</p>
+            <p>карамель и мягкая кислинка</p>
+          </article>
+          <article class="bean-card">
+            <h3>Бразилия</h3>
+            <p class="bean-meta">тёмная обжарка</p>
+            <p>шоколад и орехи</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ОТЗЫВЫ ======================= -->
+    <section class="section section--reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Говорят гости</p>
+          <h2 id="reviews-title">Три отзыва</h2>
+        </div>
+
+        <ul class="reviews" id="reviews-list">
+          <li class="review">
+            <blockquote>
+              <p>«Захожу каждое утро перед работой. Бариста уже знают: капучино на овсяном и без сахара».</p>
+            </blockquote>
+            <p class="review-author"><span class="avatar" aria-hidden="true">М</span>Марина, дизайнер</p>
+          </li>
+          <li class="review">
+            <blockquote>
+              <p>«Лучшие сырники в городе. И тут правда тихо — можно час спокойно поработать с ноутбуком».</p>
+            </blockquote>
+            <p class="review-author"><span class="avatar" aria-hidden="true">А</span>Артём, программист</p>
+          </li>
+          <li class="review">
+            <blockquote>
+              <p>«Привела сюда друзей, теперь по субботам у нас традиция: фильтр, медовик и разговоры».</p>
+            </blockquote>
+            <p class="review-author"><span class="avatar" aria-hidden="true">О</span>Ольга, учительница</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= ЧАСТЫЕ ВОПРОСЫ ======================= -->
+    <section class="section section--faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Перед визитом</p>
+          <h2 id="faq-title">Частые вопросы</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Можно ли поработать с ноутбуком? Есть Wi-Fi и розетки?</summary>
+            <p>Да. У каждого стола есть розетка, работает Wi-Fi, громкую музыку не включаем.</p>
+          </details>
+          <details>
+            <summary>Тихо ли у вас?</summary>
+            <p>Да. Мягкие кресла, большие окна и тихий зал — поработать или поговорить можно спокойно.</p>
+          </details>
+          <details>
+            <summary>Можно ли прийти компанией 8 и больше человек?</summary>
+            <p>В форме бронирования есть выбор «8 и больше». Отметьте его — перезвоним и подтвердим время.</p>
+          </details>
+          <details>
+            <summary>Когда завтраки и как вы работаете в выходные?</summary>
+            <p>Завтраки начинаем с 8:00. По будням открыты с 8:00 до 21:00, в субботу и воскресенье — с 9:00 до 22:00.</p>
+          </details>
+          <details>
+            <summary>Можно ли взять кофе с собой и как добраться?</summary>
+            <p>Любую позицию из меню можно забрать с собой — скажите бариста на кассе или напишите в комментарии при брони.</p>
+            <p>Мы здесь: <span data-site="addressShort">ул. Хххххххх, д. ХХ</span>,
+              <a data-site-link="route" data-goal="route"
+                 href="https://yandex.ru/maps/?rtext=~55.7602%2C37.6187&amp;rtt=auto">построить маршрут</a>.</p>
+          </details>
+          <details>
+            <summary>Есть ли парковка и можно ли с животными?</summary>
+            <p>Уточните по телефону: <a data-site="phone" data-site-link="phone" href="tel:+70000000000">+7 (000) 000-00-00</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= КОНТАКТЫ ======================= -->
+    <section class="section section--contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="wrap contacts-grid">
+        <div>
+          <p class="eyebrow">Где нас искать</p>
+          <h2 id="contacts-title">Контакты</h2>
+          <p class="section-lead">Мы на первом этаже старого дома, вход со двора. Мимо сложно пройти — пахнет кофе.</p>
+
+          <dl class="contact-list">
+            <div>
+              <dt>Адрес</dt>
+              <dd>
+                <span data-site="address">ул. Хххххххх, д. ХХ, 1 этаж, вход со двора</span>
+                <span class="contact-actions">
+                  <button class="link-btn" type="button" data-copy="address">Скопировать адрес</button>
+                  <a class="link-btn" data-site-link="route" data-goal="route"
+                     href="https://yandex.ru/maps/?rtext=~55.7602%2C37.6187&amp;rtt=auto"
+                     aria-label="Построить маршрут до кофейни на Яндекс Картах">Построить маршрут</a>
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt>Часы работы</dt>
+              <dd data-site="hours" data-site-lines>пн–пт с 8:00 до 21:00<br>сб–вс с 9:00 до 22:00</dd>
+              <dd class="open-status" data-open-status aria-live="polite">Открыто до 21:00</dd>
+              <dd class="holiday-note" data-site="holidayNote">В праздничные дни работаем по расписанию выходных.</dd>
+            </div>
+            <div>
+              <dt>Телефон</dt>
+              <dd>
+                <a data-site="phone" data-site-link="phone" href="tel:+70000000000"
+                   aria-label="Позвонить в кофейню">+7 (000) 000-00-00</a>
+                <span class="contact-actions">
+                  <button class="link-btn" type="button" data-copy="phone">Скопировать телефон</button>
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt>Почта</dt>
+              <dd>
+                <a data-site="email" data-site-link="email" href="mailto:hello@example.com"
+                   aria-label="Написать письмо в кофейню">hello@example.com</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Мессенджеры</dt>
+              <dd class="contact-links">
+                <a data-site-link="whatsapp" href="https://wa.me/70000000000" rel="noopener"
+                   aria-label="Написать в WhatsApp">WhatsApp</a>
+                <a data-site-link="telegram" href="https://t.me/teply_ugol_demo" rel="noopener"
+                   aria-label="Написать в Telegram">Telegram</a>
+                <a data-site-link="vk" href="https://vk.com/teply_ugol_demo" rel="noopener"
+                   aria-label="Сообщество ВКонтакте">ВКонтакте</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Карта — единственное обращение к другому сайту. Включается сразу,
+             если браузер видит интернет; без интернета остаётся эта панель. -->
+        <div class="map" id="map-box">
+          <div class="map-placeholder">
+            <span class="map-pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                <path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21z"/>
+                <circle cx="12" cy="9.5" r="2.6"/>
+              </svg>
+            </span>
+            <p class="map-address" data-site="addressShort">ул. Хххххххх, д. ХХ</p>
+            <a class="btn btn-primary btn-sm" data-site-link="route" data-goal="route"
+               href="https://yandex.ru/maps/?rtext=~55.7602%2C37.6187&amp;rtt=auto">Открыть в Яндекс Картах</a>
+            <p class="map-hint">Карта появится сразу, если есть интернет. Это единственное внешнее обращение на странице — без интернета остаётся адрес и ссылка на маршрут.</p>
+          </div>
+          <p class="map-failed" hidden>
+            Карта не загрузилась — возможно, нет интернета.
+            <a class="link-btn" data-site-link="route" data-goal="route"
+               href="https://yandex.ru/maps/?rtext=~55.7602%2C37.6187&amp;rtt=auto">Открыть в Яндекс Картах</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= БРОНИРОВАНИЕ ======================= -->
+    <section class="section section--booking" id="booking" aria-labelledby="booking-title">
+      <div class="wrap booking-grid">
+        <div>
+          <p class="eyebrow">Столик заранее</p>
+          <h2 id="booking-title">Забронировать столик</h2>
+          <p class="section-lead">
+            В выходные занято почти всё, поэтому лучше предупредить нас заранее.
+            Перезвоним и подтвердим время.
+          </p>
+          <p class="booking-note" data-mark="demoForm">
+            Это демонстрационная форма. Заявка сохранится только в этом браузере —
+            посмотреть её можно в журнале заявок. Владельцу она не уходит.
+          </p>
+          <p class="booking-phone">
+            Не хотите ждать? Позвоните:
+            <a data-site="phone" data-site-link="phone" href="tel:+70000000000">+7 (000) 000-00-00</a>
+          </p>
+        </div>
+
+        <div class="booking-panel">
+          <form class="form" id="booking-form" novalidate aria-labelledby="booking-title">
+
+            <div class="field" data-field="name">
+              <label for="booking-name">Имя</label>
+              <input id="booking-name" name="name" type="text" placeholder="Как к вам обращаться"
+                     autocomplete="name" maxlength="40" required>
+              <p class="field-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label for="booking-phone">Телефон</label>
+              <input id="booking-phone" name="phone" type="tel" placeholder="+7 (900) 000-00-00"
+                     autocomplete="tel" inputmode="tel" maxlength="18" required
+                     aria-describedby="phone-hint">
+              <p class="field-hint" id="phone-hint">Для звонка — номер понадобится бариста.</p>
+              <p class="field-error" hidden></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field" data-field="date">
+                <label for="booking-date">Дата</label>
+                <input id="booking-date" name="date" type="date" required>
+                <p class="field-error" hidden></p>
+              </div>
+              <div class="field" data-field="time">
+                <label for="booking-time">Время</label>
+                <input id="booking-time" name="time" type="time" step="1800" required>
+                <p class="field-error" hidden></p>
+              </div>
+            </div>
+
+            <div class="field" data-field="guests">
+              <label for="booking-guests">Гостей</label>
+              <select id="booking-guests" name="guests" required>
+                <option value="">Выберите количество</option>
+                <option value="1">1 гость</option>
+                <option value="2">2 гостя</option>
+                <option value="3">3 гостя</option>
+                <option value="4">4 гостя</option>
+                <option value="5">5 гостей</option>
+                <option value="6">6 гостей</option>
+                <option value="7">7 гостей</option>
+                <option value="8+">8 и больше</option>
+              </select>
+              <p class="field-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="comment">
+              <label for="booking-comment">Комментарий <span class="label-note">не обязательно</span></label>
+              <textarea id="booking-comment" name="comment" rows="3" maxlength="300"
+                        placeholder="Например: нужен стол у окна или детский стул"></textarea>
+              <p class="field-error" hidden></p>
+            </div>
+
+            <div class="check-field" data-field="consent">
+              <label class="check" for="booking-consent">
+                <input type="checkbox" id="booking-consent" name="consent" required>
+                <span>Согласен на обработку персональных данных —
+                  <a href="politika.html" target="_blank" rel="noopener">политика конфиденциальности</a></span>
+              </label>
+              <p class="field-error" hidden></p>
+            </div>
+
+            <!-- Поле-ловушка для роботов: человек его не видит -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="booking-company">Название компании</label>
+              <input id="booking-company" name="company" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="btn btn-primary btn-block" id="booking-submit" type="submit">Забронировать столик</button>
+            <p class="form-hint">Перезвоним в течение 15 минут в рабочее время.</p>
+            <p class="form-status" id="booking-status" role="status" aria-live="polite" hidden></p>
+          </form>
+
+          <!-- Экран успеха -->
+          <div class="booking-success" id="booking-success" tabindex="-1" aria-live="polite" hidden>
+            <p class="success-kicker">Готово</p>
+            <h3 class="success-title">Заявка № <span id="success-id">б/н</span> принята</h3>
+            <p class="success-lead">Перезвоним в течение 15 минут в рабочее время.
+              Если планы изменятся — просто позвоните нам.</p>
+            <p class="warning" id="success-warning" hidden></p>
+            <dl class="success-summary" id="success-summary"></dl>
+
+            <div class="demo-notice" id="booking-demo-notice" data-mark="demoNotice" hidden>
+              <p class="demo-notice-title">Так выглядело бы уведомление</p>
+              <p class="tg-preview" id="tg-preview"></p>
+              <p class="demo-notice-note">Демонстрация: сообщение в Telegram никуда не отправляется.</p>
+            </div>
+
+            <div class="success-actions">
+              <a class="btn btn-primary" data-site-link="phone" href="tel:+70000000000">Позвонить</a>
+              <button class="btn btn-ghost" type="button" id="booking-again">Оставить ещё одну заявку</button>
+              <a class="btn btn-ghost" id="success-journal" data-mark="demoJournal" href="zakazy.html">Журнал заявок (демо)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= ПОДВАЛ ======================= -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-about">
+        <a class="logo logo--footer" href="#top" aria-label="«Тёплый угол», наверх">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="24" height="24">
+              <path d="M7 10h13v9a6 6 0 0 1-13 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M20 12h2.6a3.4 3.4 0 0 1 0 6.8H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="logo-text">
+            <span class="logo-name" data-site="name">Тёплый угол</span>
+            <span class="logo-sub" data-site="bakeryLabel">кофейня и пекарня</span>
+          </span>
+        </a>
+        <p class="footer-note">Кофе, завтраки и тихие разговоры. Каждый день с восьми утра.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <h2 class="footer-title">Разделы</h2>
+        <a href="#about">О нас</a>
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Атмосфера</a>
+        <a href="#booking">Бронирование</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="footer-social">
+        <h2 class="footer-title">Мы в сети</h2>
+        <ul>
+          <li><a data-site-link="telegram" href="https://t.me/teply_ugol_demo" rel="noopener"
+                 aria-label="Написать в Telegram">Telegram</a></li>
+          <li><a data-site-link="vk" href="https://vk.com/teply_ugol_demo" rel="noopener"
+                 aria-label="Сообщество ВКонтакте">ВКонтакте</a></li>
+          <li><a data-site-link="whatsapp" href="https://wa.me/70000000000" rel="noopener"
+                 aria-label="Написать в WhatsApp">WhatsApp</a></li>
+          <li><a href="politika.html">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="footer-legal">
+        <h2 class="footer-title">Реквизиты</h2>
+        <!-- Строки собираются скриптом по типу владельца из js/config.js (legal.type).
+             Ниже — запасной вариант для ИП на случай выключенных скриптов. -->
+        <dl class="legal-list" id="legal-list">
+          <div><dt>Предприниматель</dt><dd data-site="legal.fullName">ИП Иванов Иван Иванович</dd></div>
+          <div><dt>ИНН</dt><dd data-site="legal.inn">000000000000</dd></div>
+          <div><dt>ОГРНИП</dt><dd data-site="legal.ogrnip">000000000000000</dd></div>
+          <div><dt>Юридический адрес</dt><dd data-site="legal.legalAddress">XXXXXX, г. Хххххххххх, ул. Хххххххх, д. ХХ</dd></div>
+          <div><dt>Телефон</dt><dd>
+            <a data-site="phone" data-site-link="phone" href="tel:+70000000000">+7 (000) 000-00-00</a></dd></div>
+          <div><dt>Почта</dt><dd>
+            <a data-site="email" data-site-link="email" href="mailto:hello@example.com">hello@example.com</a></dd></div>
+        </dl>
+        <p class="legal-note" data-site="legal.note" data-mark="legalNote">Реквизиты демонстрационные и не являются настоящими.</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p>© 2026 <span data-site="legalName">Кофейня «Тёплый угол»</span>. <span data-mark="schoolProject">Учебный проект.</span></p>
+      <p class="photo-credit" data-mark="photoCredit">Фотографии: WordPress Photo Directory, CC0</p>
+      <p class="disclaimer" data-mark="disclaimer">Демонстрационный макет. Данные вымышлены.</p>
+    </div>
+  </footer>
+
+  <!-- Плашка про cookie -->
+  <div class="cookie" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" hidden>
+    <div class="cookie-inner">
+      <p class="cookie-title" id="cookie-title">Сохранение на устройстве</p>
+      <p id="cookie-text">
+        Мы сохраняем на вашем устройстве ваш выбор и данные брони, чтобы не заполнять форму заново.
+        Сторонние счётчики посещений и рекламные файлы cookie не используются.
+        <span data-mark="demoCookie">В демо-версии все данные остаются на этом устройстве.</span>
+        Подробнее — <a href="politika.html">в политике конфиденциальности</a>.
+      </p>
+      <div class="cookie-actions">
+        <button class="btn btn-primary btn-sm" type="button" data-cookie="all">Принять</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-cookie="necessary">Только необходимые</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Липкая панель на телефоне. Скрывается, когда видна форма брони. -->
+  <div class="mobile-bar" id="mobile-bar" aria-label="Быстрые действия">
+    <a class="mobile-bar-btn" data-site-link="phone" href="tel:+70000000000">Позвонить</a>
+    <a class="mobile-bar-btn" data-site-link="route" data-goal="route"
+       href="https://yandex.ru/maps/?rtext=~55.7602%2C37.6187&amp;rtt=auto">Маршрут</a>
+    <a class="mobile-bar-btn" href="#booking">Забронировать</a>
+  </div>
+
+  <!-- Скрипты: сначала данные, потом настройки, потом логика -->
+  <script src="data/menu.js"></script>
+  <script src="data/photos.js"></script>
+  <script src="data/reviews.js"></script>
+  <script src="data/about.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

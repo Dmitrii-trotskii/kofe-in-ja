@@ -1,0 +1,17 @@
+# robots.txt — что поисковикам можно, а что нельзя
+# Домен-заглушка: подставьте настоящий домен при сдаче.
+
+User-agent: *
+Allow: /
+
+# Служебные страницы закрыты от индексации
+Disallow: /zakazy.html
+Disallow: /admin.html
+
+# Технические папки не нужны в поиске
+Disallow: /js/
+Disallow: /data/
+
+# Логин и имя репозитория уже подставлены (Dmitrii-trotskii, kofe-in-ja).
+# Если назовёте репозиторий иначе — поменяйте его в адресе ниже.
+Sitemap: https://Dmitrii-trotskii.github.io/kofe-in-ja/sitemap.xml
